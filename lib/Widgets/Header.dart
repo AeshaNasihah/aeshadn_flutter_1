@@ -18,7 +18,9 @@ class Header extends StatelessWidget {
             children: [
               Text("Estate",
                   style: GoogleFonts.poppins(
-                      fontSize: 24, fontWeight: FontWeight.bold)),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  )),
               Text("Best Discovery ever",
                   style: GoogleFonts.poppins(
                       fontSize: 14, fontWeight: FontWeight.normal)),
@@ -27,9 +29,10 @@ class Header extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(100),
             child: Container(
-                color: Color.fromARGB(255, 83, 65, 119),
+                color: Color.fromARGB(255, 245, 244, 247),
                 padding: const EdgeInsets.all(8),
-                child: const Icon(Icons.notifications_outlined)),
+                child:
+                    Container(child: const Icon(Icons.notifications_outlined))),
           )
         ],
       ),
