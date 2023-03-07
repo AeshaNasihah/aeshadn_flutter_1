@@ -29,7 +29,7 @@ class Header extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(100),
             child: Container(
-                color: Color.fromARGB(255, 245, 244, 247),
+                color: Color.fromARGB(255, 238, 238, 238),
                 padding: const EdgeInsets.all(8),
                 child:
                     Container(child: const Icon(Icons.notifications_outlined))),

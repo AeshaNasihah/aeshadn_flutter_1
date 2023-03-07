@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Belajar Flutter",
       home: const ExplorePage(),
+      color: Color.fromARGB(255, 156, 151, 151),
     );
   }
 }
