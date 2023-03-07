@@ -19,7 +19,7 @@ class ExplorePage extends StatelessWidget {
 
         //Categories
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.only(left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -153,7 +153,8 @@ class ExplorePage extends StatelessWidget {
 
         //Staff Picks
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+          padding:
+              const EdgeInsets.only(top: 24, bottom: 24, left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -265,7 +266,7 @@ class ExplorePage extends StatelessWidget {
 
         //Best Agent
         Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.only(bottom: 24, left: 24, right: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -367,6 +368,60 @@ class ExplorePage extends StatelessWidget {
                 ),
               ],
             )),
+
+        //Cities
+        Padding(
+          padding: const EdgeInsets.only(bottom: 24, left: 24, right: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Cities",
+                  style: GoogleFonts.poppins(
+                      fontSize: 18, fontWeight: FontWeight.w600)),
+              const SizedBox(height: 8),
+
+              //listTile
+              ListTile(
+                leading: Image.asset(
+                  "assets/images/image_8.png",
+                  fit: BoxFit.fill,
+                ),
+                title: Text("Jakarta Selatan",
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    )),
+                subtitle: Text("194 Property"),
+              ),
+
+              ListTile(
+                leading: Image.asset(
+                  "assets/images/image_9.png",
+                  fit: BoxFit.fill,
+                ),
+                title: Text("Bandung",
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    )),
+                subtitle: Text("89,400 Property"),
+              ),
+
+              ListTile(
+                leading: Image.asset(
+                  "assets/images/image_10.png",
+                  fit: BoxFit.fill,
+                ),
+                title: Text("Denpasar",
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    )),
+                subtitle: Text("184,000 Property"),
+              ),
+            ],
+          ),
+        ),
       ]),
     ]));
   }
