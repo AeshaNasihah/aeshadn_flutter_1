@@ -1,7 +1,6 @@
 import 'package:aeshadn_application_1/Widgets/Header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ExplorePage extends StatelessWidget {
@@ -20,138 +19,7 @@ class ExplorePage extends StatelessWidget {
             ),
 
             //Categories
-            Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Categories",
-                      style: GoogleFonts.poppins(
-                          fontSize: 18, fontWeight: FontWeight.w600)),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 245, 244, 247),
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Image.asset(
-                              "assets/images/fi_wind.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Hutan",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 245, 244, 247),
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Image.asset(
-                              "assets/images/fi_shopping-bag.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Toko",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 245, 244, 247),
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Image.asset(
-                              "assets/images/fi_truck.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Gudang",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 245, 244, 247),
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Image.asset(
-                              "assets/images/fi_cloud-drizzle.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Hujan",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 245, 244, 247),
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Image.asset(
-                              "assets/images/fi_briefcase.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Office",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          )
-                        ],
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
+            categories(),
 
             //Staff Picks
             Padding(
@@ -175,10 +43,31 @@ class ExplorePage extends StatelessWidget {
                             decoration: BoxDecoration(
                                 color: Color.fromARGB(255, 245, 244, 247),
                                 borderRadius: BorderRadius.circular(8)),
-                            child: Image.asset(
-                              "assets/images/image_6.png",
-                              height: 80,
-                              width: 120,
+                            child: Stack(
+                              children: [
+                                Image.asset(
+                                  "assets/images/image_6.png",
+                                  height: 80,
+                                  width: 120,
+                                ),
+                                Container(
+                                  margin:
+                                      const EdgeInsets.only(left: 5, top: 10),
+                                  padding: const EdgeInsets.all(4),
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff322E4A),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Text(
+                                    "New",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.normal,
+                                      color: const Color(0xFFF7AF4B),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Row(
@@ -276,88 +165,95 @@ class ExplorePage extends StatelessWidget {
                       style: GoogleFonts.poppins(
                           fontSize: 18, fontWeight: FontWeight.w600)),
                   const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.asset(
-                              "assets/images/image_71.png",
-                              height: 40,
-                              width: 40,
-                              fit: BoxFit.cover,
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        for (var i = 0; i <= 10; i++)
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.asset(
+                                    "assets/images/image_71.png",
+                                    height: 40,
+                                    width: 40,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(6),
+                                  child: Text("Satthu",
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal,
+                                      )),
+                                ),
+                                Text("1908 Sold",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
+                                    )),
+                              ],
                             ),
                           ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Satthu",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          ),
-                          Text("1908 Sold",
-                              style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                              )),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.asset(
-                              "assets/images/image_73.png",
-                              height: 40,
-                              width: 40,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Isy Mana",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          ),
-                          Text("839 Sold",
-                              style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                              )),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.asset(
-                              "assets/images/image_75.png",
-                              height: 40,
-                              width: 40,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(6),
-                            child: Text("Luph",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                )),
-                          ),
-                          Text("442 Sold",
-                              style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                              )),
-                        ],
-                      ),
-                    ],
+                        // Column(
+                        //   children: [
+                        //     ClipRRect(
+                        //       borderRadius: BorderRadius.circular(50),
+                        //       child: Image.asset(
+                        //         "assets/images/image_73.png",
+                        //         height: 40,
+                        //         width: 40,
+                        //         fit: BoxFit.cover,
+                        //       ),
+                        //     ),
+                        //     Container(
+                        //       padding: const EdgeInsets.all(6),
+                        //       child: Text("Isy Mana",
+                        //           style: GoogleFonts.poppins(
+                        //             fontSize: 12,
+                        //             fontWeight: FontWeight.normal,
+                        //           )),
+                        //     ),
+                        //     Text("839 Sold",
+                        //         style: GoogleFonts.poppins(
+                        //           fontSize: 12,
+                        //           fontWeight: FontWeight.normal,
+                        //         )),
+                        //   ],
+                        // ),
+                        // Column(
+                        //   children: [
+                        //     ClipRRect(
+                        //       borderRadius: BorderRadius.circular(50),
+                        //       child: Image.asset(
+                        //         "assets/images/image_75.png",
+                        //         height: 40,
+                        //         width: 40,
+                        //         fit: BoxFit.cover,
+                        //       ),
+                        //     ),
+                        //     Container(
+                        //       padding: const EdgeInsets.all(6),
+                        //       child: Text("Luph",
+                        //           style: GoogleFonts.poppins(
+                        //             fontSize: 12,
+                        //             fontWeight: FontWeight.normal,
+                        //           )),
+                        //     ),
+                        //     Text("442 Sold",
+                        //         style: GoogleFonts.poppins(
+                        //           fontSize: 12,
+                        //           fontWeight: FontWeight.normal,
+                        //         )),
+                        //   ],
+                        // ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 8),
                 ],
@@ -447,5 +343,140 @@ class ExplorePage extends StatelessWidget {
             )
           ]),
         ));
+  }
+
+  Widget categories() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 24, right: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Categories",
+              style: GoogleFonts.poppins(
+                  fontSize: 18, fontWeight: FontWeight.w600)),
+          const SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 245, 244, 247),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Image.asset(
+                      "assets/images/fi_wind.png",
+                      height: 20,
+                      width: 20,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(6),
+                    child: Text("Hutan",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                        )),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 245, 244, 247),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Image.asset(
+                      "assets/images/fi_shopping-bag.png",
+                      height: 20,
+                      width: 20,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(6),
+                    child: Text("Toko",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                        )),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 245, 244, 247),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Image.asset(
+                      "assets/images/fi_truck.png",
+                      height: 20,
+                      width: 20,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(6),
+                    child: Text("Gudang",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                        )),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 245, 244, 247),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Image.asset(
+                      "assets/images/fi_cloud-drizzle.png",
+                      height: 20,
+                      width: 20,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(6),
+                    child: Text("Hujan",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                        )),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 245, 244, 247),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Image.asset(
+                      "assets/images/fi_briefcase.png",
+                      height: 20,
+                      width: 20,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(6),
+                    child: Text("Office",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                        )),
+                  )
+                ],
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
